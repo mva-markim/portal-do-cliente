@@ -8,8 +8,9 @@ import FilterInput from '../../components/FilterInput'
 import TableHead from '../../components/Table/TableHead'
 import TableBody from '../../components/Table/TableBody'
 import RatingStars from '../../components/RatingStars'
+import OrdemServicoDetalhes from './OrdemServicoDetalhes'
 
-export default class OrdemServico extends Component {
+export default class OrdensServico extends Component {
     state = {
         ordensServico: []
     };
@@ -26,7 +27,7 @@ export default class OrdemServico extends Component {
 
     rederizaDadosTabela(ordemServico) {
         return (
-            <tr key='ordemServico.numOS'>
+            <tr key={ordemServico.numOS}>
                 <td>#{ordemServico.numOS}</td>
                 <td>{ordemServico.data}</td>
                 <td>{ordemServico.tipo}</td>
@@ -64,11 +65,12 @@ export default class OrdemServico extends Component {
                             <th className="text-center width-200">Ações</th>
                         </TableHead>
 
-                        <TableBody>{ordensServico.map(this.rederizaDadosTabela)}
-                        </TableBody>
+                        <TableBody>{ordensServico.map(this.rederizaDadosTabela)}</TableBody>
                     </TableData>
 
                 </TableContainer>
+
+                <OrdemServicoDetalhes />
             </div>
         )
     }

@@ -35,10 +35,23 @@ a, button {
     display: flex;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
 .center-middle {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.grid-template {
+    display: grid;
+    grid-template-columns: max-content max-content;
+}
+
+.width-50-perc {
+    width: 50%;
 }
 
 .reponsive-img {
@@ -465,4 +478,21 @@ a, button {
 
 .status-indicator.disapproved span {
     background-color: #ff9999;
+}
+
+/*Deails page*/
+
+.details-dl dt, .details-dl dd {
+    display: block;
+    float: left;
+    margin-top: 20px;
+}
+
+.details-dl dt {
+    clear: both;
+    color: #757575;
+}
+
+.details-dl dd {
+    color: #333;
 }

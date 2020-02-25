@@ -5,7 +5,7 @@ import SideNav from '../components/SideNav'
 import { history } from './history'
 
 const Home = lazy(() => import('../features/Home/Home'))
-const OrdemServico = lazy(() => import('../features/OrdemServico/OrdemServico'))
+const OrdensServico = lazy(() => import('../features/OrdemServico/OrdensServico'))
 const Campanhas = lazy(() => import('../features/Campanhas/Campanhas'))
 const ControleAcesso = lazy(() => import('../features/ControleAcesso/ControleAcesso'))
 const FAQ = lazy(() => import('../features/FAQ/FAQ'))
@@ -32,7 +32,7 @@ const Routes = () => (
                     <Route component={() => <LiberacaoPedidos />} exact path="/liberacao-pedidos" />
                     <Route component={() => <MeusPedidos />} exact path="/meus-pedidos" />
                     <Route component={() => <MeusDados />} exact path="/meus-dados" />
-                    <Route component={() => <OrdemServico />} exact path="/ordem-servico" />
+                    <Route component={() => <OrdensServico />} exact path="/ordem-servico" />
                 </Suspense>
             </Switch>
         </div>
