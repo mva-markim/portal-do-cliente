@@ -3,6 +3,7 @@ import { Switch, Router, Route } from 'react-router'
 import SideNav from '../components/SideNav'
 
 import { history } from './history'
+import ModalContainer from '../utils/ModalContainer'
 
 const Home = lazy(() => import('../features/Home/Home'))
 const OrdensServico = lazy(() => import('../features/OrdemServico/OrdensServico'))
@@ -21,6 +22,7 @@ const Routes = () => (
     <Router history={history}>
         <SideNav />
         <div className="main">
+        <ModalContainer />
             <Switch>
                 <Suspense fallback={<h1 className="loadingOverlay center-middle">Carregando...</h1>}>
                     <Route component={() => <Home />} exact path="/" />

@@ -5,7 +5,7 @@ const clockIcon = require('../assets/img/icons/svg/clock-solid.svg')
 
 const RatingStars = (props) => {
     return (
-        <button className="rating-button">
+        <button className="rating-button" onClick={props.onClick}>
             {
                 props.starsNumber > 0 &&
                 <span><img src={starIcon} alt="Ícone de avaliação" /> {props.starsNumber}</span>

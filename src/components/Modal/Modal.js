@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { hideModal } from '../../store/action-creators/modal';
 
-export default class Modal extends Component {
+const closeIcon = require('../../assets/img/icons/svg/times-solid.svg')
+
+class Modal extends Component {
+
+    constructor(props) {        
+        super(props);
+    }
 
     listenKeyboard(event) {
         if (event.key === 'Escape' || event.keyCode === 27) {
@@ -21,7 +29,7 @@ export default class Modal extends Component {
     }
 
     onOverlayClick() {
-        this.props.onClose();
+        this.props.hideModal()
     }
 
     onDialogClick(event) {
@@ -29,20 +37,27 @@ export default class Modal extends Component {
     }
 
     render() {
+        const { title } = this.props
         return (
-            <div class="overlay center-middle">
-                <div class="modal scale-in-center">
-                    <div class="modal-header">
+            <div className="overlay center-middle" onClick={() => this.onOverlayClick()} tabindex="0">
+                <div className="modal modal-lg scale-in-center" onClick={event => this.onDialogClick(event)}>
+                    <div className="modal-header">
                         {title}
 
-                        <button class="btn btn-close-modal">
-                            <img src="/assets/img/icons/svg/times-solid.svg" alt="Icone para fechar o modal" />
+                        <button className="btn btn-close-modal" onClick={() => this.onOverlayClick()}>
+                            <img src={closeIcon} alt="Icone para fechar o modal" />
                         </button>
                     </div>
 
-                    <div class="modal-body">{props.children}</div>
+                    <div className="modal-body">{this.props.children}</div>
                 </div>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    hideModal: () => dispatch(hideModal())
+});
+
+export default connect(null, mapDispatchToProps)(Modal)
